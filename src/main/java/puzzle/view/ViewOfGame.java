@@ -91,19 +91,20 @@ public class ViewOfGame implements View {
         boolean hasWon = outputDTO.isHasWon();
         if (hasWon) {
             System.out.println(MESSAGE_WIN);
-            return;
         }
         Cell[] field = outputDTO.getField();
-        Cell emptyCell = Cell.factory(16);
-        StringBuffer strOutput = new StringBuffer();
-        strOutput.append("Field:\n");
-        for (int i = 0; i < field.length; ++i) {
-            if (i > 0 && i % 4 == 0) strOutput.append("\n");
-            String strTemp = emptyCell.equals(field[i]) ? "X  " :
-                    String.format("%-3s", field[i].getNumber());
-            strOutput.append(strTemp);
+        if (field != null) {
+            Cell emptyCell = Cell.factory(16);
+            StringBuffer strOutput = new StringBuffer();
+            strOutput.append("Field:\n");
+            for (int i = 0; i < field.length; ++i) {
+                if (i > 0 && i % 4 == 0) strOutput.append("\n");
+                String strTemp = emptyCell.equals(field[i]) ? "X  " :
+                        String.format("%-3s", field[i].getNumber());
+                strOutput.append(strTemp);
+            }
+            System.out.println(strOutput.toString());
         }
-        System.out.println(strOutput.toString());
     }
 
     @Override

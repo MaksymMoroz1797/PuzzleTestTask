@@ -72,7 +72,7 @@ public class Field {
     }
 
     /**
-     * We can swap omly neighbor cells
+     * We can swap only neighbor cells
      * @param indexX
      * @param indexY
      * @return can swap
@@ -126,7 +126,7 @@ public class Field {
         return true;
     }
     // not used method
-    public boolean move(int x, int y) throws IllegalArgumentException {
+    public boolean move(int x, int y) {
         if (x < 1 || x > 4 | y < 1 || y > 4)
             return false;
         int empty = this.indexOfEmpty;
